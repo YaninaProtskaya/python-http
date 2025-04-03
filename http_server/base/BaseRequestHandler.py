@@ -42,6 +42,17 @@ class BaseRequestHandler(BaseHTTPRequestHandler):
             case _:
                 self.sendJson({'error': 'Not found'}, 404)
 
+    def do_DELETE(self):
+        self.handleDelete()
+
+    def handleDelete(self):
+        match self.path:
+            case '/delete-test':
+                response = {'message': 'Resource deleted successfully'}
+                self.sendJson(response)
+            case _:
+                self.sendJson({'error': 'Resource not found'}, 404)
+
 
 if __name__ == '__main__':
     pass

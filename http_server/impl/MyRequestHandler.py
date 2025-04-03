@@ -1,20 +1,20 @@
 from http_server.base.BaseRequestHandler import BaseRequestHandler
 
-
 class MyRequestHandler(BaseRequestHandler):
+    JSON_DIR = '/Users/yanina/programming/python/python-http/http_server/json/'
+
+    def sendJsonFromFile(self, file_path: str):
+        super().sendJsonFromFile((self.JSON_DIR if self.JSON_DIR.endswith('/') else self.JSON_DIR + '/') + file_path)
+
     def handleGet(self):
         match self.path:
             case '/':
-                data = {
-                    'message': 'Hello, Python server!'
-                }
+                data = {'message': 'Hello, Python server!'}
                 self.sendJson(data)
+            case '/file-test':
+                self.sendJsonFromFile('test.json')
 
-            case '/info' | '/info/':
-                self.sendText('Made by Yanina Protskaya (:')
-
-            case _:
-                self.sendText('Not found', 404)
+            case _: self.notFound()
 
 
     def handlePost(self, data):
@@ -22,8 +22,8 @@ class MyRequestHandler(BaseRequestHandler):
             case '/':
                 response = {'message': 'Received!', 'data': data}
                 self.sendJson(response)
-            case _:
-                self.sendJson({'error': 'Not found'}, 404)
+
+            case _: self.notFound()
 
 
     def handlePut(self, data):
@@ -34,8 +34,8 @@ class MyRequestHandler(BaseRequestHandler):
             case '/test/12345':
                 response = {'message': 'Resource 12345 updated successfully', 'updated_data': data}
                 self.sendJson(response)
-            case _:
-                self.sendJson({'error': 'Resource not found'}, 404)
+
+            case _: self.notFound()
 
 
     def handleDelete(self):
@@ -46,5 +46,5 @@ class MyRequestHandler(BaseRequestHandler):
             case '/test/12345':
                 response = {'message': 'Resource 12345 deleted successfully'}
                 self.sendJson(response)
-            case _:
-                self.sendJson({'error': 'Resource not found'}, 404)
+
+            case _: self.notFound()

@@ -1,0 +1,7 @@
+{
+  "message": "Hello JSON",
+  "array": [1, 2, 3],
+  "object": {
+    "hello": "World"
+  }
+}

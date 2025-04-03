@@ -25,14 +25,8 @@ class BaseRequestHandler(BaseHTTPRequestHandler):
                 self.sendText('Not found', 404)
 
     def do_POST(self):
-        content_length = int(self.headers.get('Content-Length', 0))
-        post_data = self.rfile.read(content_length)
-        try:
-            data = json.loads(post_data)
-            self.handlePost(data)
-        except json.JSONDecodeError:
-            response = {'error': 'Invalid JSON'}
-            self.sendJson(response, 400)
+        data = self.__readJson()
+        self.handlePost(data)
 
     def handlePost(self, data):
         print(f"self.path: ${self.path}")
@@ -41,6 +35,27 @@ class BaseRequestHandler(BaseHTTPRequestHandler):
                 self.sendJson(data)
             case _:
                 self.sendJson({'error': 'Not found'}, 404)
+
+    def __readJson(self):
+        content_length = int(self.headers.get('Content-Length', 0))
+        put_data = self.rfile.read(content_length)
+        try:
+            data = json.loads(put_data)
+            return data
+        except json.JSONDecodeError:
+            response = {'error': 'Invalid JSON'}
+            self.sendJson(response, 400)
+
+    def do_PUT(self):
+        data = self.__readJson()
+        self.handlePut(data)
+
+    def handlePut(self, data):
+        if self.path == '/update-test':
+            response = {'message': 'Resource updated successfully', 'updated_data': data}
+            self.sendJson(response)
+        else:
+            self.sendJson({'error': 'Resource not found'}, 404)
 
     def do_DELETE(self):
         self.handleDelete()

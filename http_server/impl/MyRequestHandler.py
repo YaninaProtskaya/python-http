@@ -26,6 +26,18 @@ class MyRequestHandler(BaseRequestHandler):
                 self.sendJson({'error': 'Not found'}, 404)
 
 
+    def handlePut(self, data):
+        match self.path:
+            case '/test/123':
+                response = {'message': 'Resource 123 updated successfully', 'updated_data': data}
+                self.sendJson(response)
+            case '/test/12345':
+                response = {'message': 'Resource 12345 updated successfully', 'updated_data': data}
+                self.sendJson(response)
+            case _:
+                self.sendJson({'error': 'Resource not found'}, 404)
+
+
     def handleDelete(self):
         match self.path:
             case '/test/123':

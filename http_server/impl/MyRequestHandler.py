@@ -8,10 +8,19 @@ class MyRequestHandler(BaseRequestHandler):
                 data = {
                     'message': 'Hello, Python server!'
                 }
-                self.respondJson(data)
+                self.sendJson(data)
 
             case '/info' | '/info/':
-                self.respond('Made by Yanina Protskaya (:')
+                self.sendText('Made by Yanina Protskaya (:')
 
             case _:
-                self.respond('Not found', 404)
+                self.sendText('Not found', 404)
+
+
+    def handlePost(self, data):
+        match self.path:
+            case '/':
+                response = {'message': 'Received!', 'data': data}
+                self.sendJson(response)
+            case _:
+                self.sendJson({'error': 'Not found'}, 404)

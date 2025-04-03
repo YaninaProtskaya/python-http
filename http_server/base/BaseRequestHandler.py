@@ -2,13 +2,13 @@ from http.server import BaseHTTPRequestHandler
 import json
 
 class BaseRequestHandler(BaseHTTPRequestHandler):
-    def respond(self, data: str, code: int = 200):
+    def sendText(self, data: str, code: int = 200):
         self.send_response(code)
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
         self.wfile.write(str.encode(data))
 
-    def respondJson(self, data: dict[str, any], code: int = 200):
+    def sendJson(self, data: dict[str, any], code: int = 200):
         self.send_response(code)
         self.send_header('Content-type', 'application/json')
         self.end_headers()
@@ -20,11 +20,27 @@ class BaseRequestHandler(BaseHTTPRequestHandler):
     def handleGet(self):
         match self.path:
             case '/':
-                self.respond('Hello, Python server!')
+                self.sendText('Hello, Python server!')
             case _:
-                self.respond('Not found', 404)
+                self.sendText('Not found', 404)
 
+    def do_POST(self):
+        content_length = int(self.headers.get('Content-Length', 0))
+        post_data = self.rfile.read(content_length)
+        try:
+            data = json.loads(post_data)
+            self.handlePost(data)
+        except json.JSONDecodeError:
+            response = {'error': 'Invalid JSON'}
+            self.sendJson(response, 400)
 
+    def handlePost(self, data):
+        print(f"self.path: ${self.path}")
+        match self.path:
+            case '/echo' | '/echo/':
+                self.sendJson(data)
+            case _:
+                self.sendJson({'error': 'Not found'}, 404)
 
 
 if __name__ == '__main__':

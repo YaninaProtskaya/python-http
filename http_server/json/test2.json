@@ -1,5 +1,5 @@
 {
-  "message": "Hello JSON",
+  "message": "Hello JSON 2",
   "array": [1, 2, 3],
   "object": {
     "hello": "World"

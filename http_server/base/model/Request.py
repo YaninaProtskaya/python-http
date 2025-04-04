@@ -19,11 +19,11 @@ class Request:
         self.__method = method
         pathAndQueryParams = path.split('?')
         self.__pathString = pathAndQueryParams[0].strip('/').strip('\\')
-        self.__pathArray = {}
+        self.__pathArray: dict[int, str] = {}
         for segment in self.__pathString.split('/'):
             if len(segment) > 0:
                 self.__pathArray[len(self.__pathArray)] = segment
-        self.__queryParams = {}
+        self.__queryParams: dict[str, any] = {}
         if len(pathAndQueryParams) > 1:
             queryString = pathAndQueryParams[1]
             paramValuePairs = queryString.split('&')

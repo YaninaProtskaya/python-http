@@ -13,7 +13,8 @@ class Config:
     def jsonDir(self) -> str:
         return self.__jsonDir
 
-    def __readConfFile(self):
+    @staticmethod
+    def __readConfFile():
         try:
             configFilePath = sys.argv[sys.argv.index('-c') + 1]
         except Exception:

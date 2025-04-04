@@ -34,7 +34,7 @@ class BaseRequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(str.encode(json.dumps(data)))
 
     def sendJsonFromFile(self, file_path: str):
-        jsonDir = self.server.jsonDir
+        jsonDir = self.server.jsonDir # todo pass the configuration
         path = (jsonDir if jsonDir.endswith('/') else jsonDir + '/') + file_path
         if os.path.exists(path):
             f = open(path, 'r')

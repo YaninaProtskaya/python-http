@@ -1,12 +1,13 @@
 from http.server import ThreadingHTTPServer
+
+from http_server.base.config.Config import Config
 from http_server.impl.MyRequestHandler import MyRequestHandler
 
-
-def run(server_class=ThreadingHTTPServer, handler_class=MyRequestHandler):
-    server_address = ('', 8000)
-    httpd = server_class(server_address, handler_class)
-    print("Serving on port 8000...")
+def run():
+    config = Config()
+    httpd = ThreadingHTTPServer((config.server.host, config.server.port), MyRequestHandler)
+    httpd.jsonDir = config.jsonDir # workaround for passing jsonDir to MyRequestHandler
+    print(f"Listening on http://{config.server.host}:{config.server.port}")
     httpd.serve_forever()
-
 
 run()

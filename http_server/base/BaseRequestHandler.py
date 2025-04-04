@@ -52,7 +52,6 @@ class BaseRequestHandler(BaseHTTPRequestHandler):
         self.handlePost(data)
 
     def handlePost(self, data):
-        print(f"self.path: ${self.path}")
         match self.path:
             case '/echo' | '/echo/':
                 self.sendJson(data)

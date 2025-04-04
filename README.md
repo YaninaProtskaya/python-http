@@ -1,15 +1,23 @@
-# python-http
+# HTTP Server
 
-### Install:
+### Setup
+In project root folder:
 ```
 virtualenv .venv  
 source .venv/bin/activate   
-# pip install -r requirements.txt 
+pip install -r requirements.txt
 ```
 
-### Running the server:
-
+### Configuration
 ```
- python -m http_server.server
+cp http_server/config/config.sample.yml http_server/config/config.yml
+```
+Edit config.yml
+
+### Run
+```
+source .venv/bin/activate
+
+python -m http_server.server -c http_server/config/config.yml
 ```
 

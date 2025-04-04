@@ -1,10 +1,9 @@
 from http_server.base.BaseRequestHandler import BaseRequestHandler
 
 class MyRequestHandler(BaseRequestHandler):
-    JSON_DIR = '/Users/yanina/programming/python/python-http/http_server/json/'
-
     def sendJsonFromFile(self, file_path: str):
-        super().sendJsonFromFile((self.JSON_DIR if self.JSON_DIR.endswith('/') else self.JSON_DIR + '/') + file_path)
+        jsonDir = self.server.jsonDir
+        super().sendJsonFromFile((jsonDir if jsonDir.endswith('/') else jsonDir + '/') + file_path)
 
     def handleGet(self):
         match self.path:

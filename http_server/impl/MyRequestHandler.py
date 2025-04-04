@@ -2,18 +2,18 @@ from http_server.base.BaseRequestHandler import BaseRequestHandler
 
 class MyRequestHandler(BaseRequestHandler):
     def handleGet(self):
-        print(self.requestData)
-        match self.requestData.path[0]: # todo check index range
+        match self.requestData.path.get(0):
             case '/':
                 data = {'message': 'Hello, Python server!'}
                 self.sendJson(data)
 
             case 'file-test':
-                match self.requestData.path[1]:
+                match self.requestData.path.get(1):
                     case '1':
                         self.sendJsonFromFile('test1.json')
                     case '2':
                         self.sendJsonFromFile('test2.json')
+
                     case _: self.notFound()
 
             case _: self.notFound()
@@ -50,7 +50,3 @@ class MyRequestHandler(BaseRequestHandler):
                 self.sendJson(response)
 
             case _: self.notFound()
-
-
-if __name__ == '__main__':
-    pass

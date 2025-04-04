@@ -107,7 +107,3 @@ class BaseRequestHandler(BaseHTTPRequestHandler):
                 self.sendJson(response)
             case _:
                 self.notFound()
-
-
-if __name__ == '__main__':
-    pass

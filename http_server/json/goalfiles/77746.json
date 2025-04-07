@@ -1,0 +1,51 @@
+{
+    "id": "77746",
+    "code": "2021OBSA501600.06",
+    "etch": "06",
+    "name": "Favorire il recupero dell'evasione fiscale.",
+    "nameLang": null,
+    "fromDate": "2020-12-31T23:00:00Z",
+    "thruDate": "2021-12-30T23:00:00Z",
+    "referenceDate": "2021-12-30T23:00:00Z",
+    "lastUpdateTimestamp": "2020-12-30T23:00:00Z",
+    "lastUpdatedSubject": "Last modified by person name",
+    "icon": "fa-rectangle-list",
+    "organizationId": "Company",
+    "goalFileType": {
+        "id": "18PMA3OBSA",
+        "parentTypeId": "CTX_BS",
+        "description": "Obiettivo Strategico Annuale",
+        "descriptionLang": "DESCRIPTION",
+        "seqEsp": 300
+    },
+    "organizationUnit": {
+        "id": "11111",
+        "mainCode": "501600",
+        "name": "DIREZIONE GENERALE PER LE ENTRATE E POLITICHE TRIBUTARIE",
+        "nameLang": "NAME"
+    },
+    "supervisorOrganizationUnit": {
+        "id": "Company",
+        "mainCode": "ORGUNIT001",
+        "name": "REGIONE CAMPANIA",
+        "nameLang": "NAME"
+    },
+    "topOrganizationUnit": {
+        "id": "ORGANIZATION_ROOT",
+        "name": "ORGANIGRAMMA",
+        "nameLang": "NAME"
+    },
+    "goalFileStatus": {
+        "id": "OBSAVALUT_EXECANN",
+        "description": "Annullato",
+        "descriptionLang": "DESCRIPTION",
+        "orderStatus": "415"
+    },
+    "goalFileParent": {
+        "id": "77746",
+        "code": "OBST.12",
+        "etch": "OBST.12",
+        "name": "Rafforzamento e semplificazione amministrativa",
+        "nameLang": "NAME"
+    }
+}

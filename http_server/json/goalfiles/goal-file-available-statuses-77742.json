@@ -1,0 +1,73 @@
+[
+    {
+        "id": "IDPLPREV_PLANPRO",
+        "description": "Scheda in inserimento",
+        "descriptionLang": "DESCRIPTION",
+        "orderStatus": "010",
+        "goalFileStatusType": {
+            "id": "CAMP_IDPL_PREV",
+            "description": "Approvazione schede dir. SPL"
+        },
+        "sequenceId": "010",
+        "direction": false
+    },
+    {
+        "id": "IDPLPREV_PLANVIS",
+        "description": "Scheda in visione",
+        "descriptionLang": "DESCRIPTION",
+        "orderStatus": "020",
+        "goalFileStatusType": {
+            "id": "CAMP_IDPL_PREV",
+            "description": "Approvazione schede dir. SPL"
+        },
+        "sequenceId": "020",
+        "direction": false
+    },
+    {
+        "id": "IDPLVALUT_EXECPRO",
+        "description": "Valutazione in inserimento",
+        "descriptionLang": "DESCRIPTION",
+        "orderStatus": "050",
+        "goalFileStatusType": {
+            "id": "CAMP_IDPL_VALUT",
+            "description": "Valutazione schede dir. SPL"
+        },
+        "sequenceId": "050",
+        "direction": false
+    },
+    {
+        "id": "OBSAVALUT_EXECANN",
+        "description": "Annullato",
+        "descriptionLang": "DESCRIPTION",
+        "orderStatus": "415",
+        "goalFileStatusType": {
+            "id": "CAMP_IDPL_VALUT",
+            "description": "Valutazione schede dir. SPL"
+        },
+        "sequenceId": "090"
+    },
+    {
+        "id": "IDPLVALUT_EXECVIS",
+        "description": "Valutazione in verifica (DIRSPL)(OIV)",
+        "descriptionLang": "DESCRIPTION",
+        "orderStatus": "060",
+        "goalFileStatusType": {
+            "id": "CAMP_IDPL_VALUT",
+            "description": "Valutazione schede dir. SPL"
+        },
+        "sequenceId": "060",
+        "direction": true
+    },
+    {
+        "id": "IDPLVALUT_EXECCNF",
+        "description": "Valutazione confermata",
+        "descriptionLang": "DESCRIPTION",
+        "orderStatus": "090",
+        "goalFileStatusType": {
+            "id": "CAMP_IDPL_VALUT",
+            "description": "Valutazione schede dir. SPL"
+        },
+        "sequenceId": "090",
+        "direction": true
+    }
+]

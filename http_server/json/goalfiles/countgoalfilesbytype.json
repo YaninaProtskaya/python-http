@@ -1,0 +1,38 @@
+[
+    {
+        "goalFileType": {
+            "id": "18ORG0AMM",
+            "parentTypeId": "CTX_BS",
+            "description": "AMMINISTRAZIONE",
+            "seqEsp": 0
+        },
+        "countByType": 1
+    },
+    {
+        "goalFileType": {
+            "id": "18ORG1SPL",
+            "parentTypeId": "CTX_BS",
+            "description": "Scheda Struttura di Primo Livello",
+            "seqEsp": 0
+        },
+        "countByType": 35
+    },
+    {
+        "goalFileType": {
+            "id": "18PMA3OBSA",
+            "parentTypeId": "CTX_BS",
+            "description": "Obiettivo Strategico Annuale",
+            "seqEsp": 300
+        },
+        "countByType": 430
+    },
+    {
+        "goalFileType": {
+            "id": "18PMA3OBSAM",
+            "parentTypeId": "CTX_BS",
+            "description": "Obiettivo Strategico Annuale (Modificato)",
+            "seqEsp": 0
+        },
+        "countByType": 73
+    }
+]

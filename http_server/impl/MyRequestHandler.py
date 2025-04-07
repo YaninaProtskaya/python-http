@@ -7,6 +7,48 @@ class MyRequestHandler(BaseRequestHandler):
                 data = {'message': 'Hello, Python server!'}
                 self.sendJson(data)
 
+            case 'goal-file-available-statuses':
+                match self.requestData.path.get(1):
+                    case '77742':
+                        self.sendJsonFromFile('goalfiles/goal-file-available-statuses-77742.json')
+                    case '77746':
+                        self.sendJsonFromFile('goalfiles/goal-file-available-statuses-77746.json')
+
+                    case _: self.notFound()
+
+            case 'goalfile':
+                match self.requestData.path.get(1):
+                    case '77742':
+                        self.sendJsonFromFile('goalfiles/77742.json')
+                    case '77746':
+                        self.sendJsonFromFile('goalfiles/77746.json')
+
+                    case _: self.notFound()
+
+            case 'goalfiles':
+                self.sendJsonFromFile('goalfiles/goalfiles.json')
+
+            case 'countgoalfiles':
+                self.sendText('123')
+
+            case 'countgoalfilesbytype':
+                self.sendJsonFromFile('goalfiles/countgoalfilesbytype.json')
+
+            case 'goalfilerevisions':
+                self.sendJsonFromFile('goalfiles/goalfilerevisions.json')
+
+            case 'goalfilestatus':
+                self.sendJsonFromFile('goalfiles/goalfilestatus.json')
+
+            case 'goalfiletypes':
+                self.sendJsonFromFile('goalfiles/goalfiletypes.json')
+
+            case 'organizationunits':
+                self.sendJsonFromFile('goalfiles/organizationunits.json')
+
+            case 'supervisororganizationunits':
+                self.sendJsonFromFile('goalfiles/supervisororganizationunits.json')
+
             case 'file-test':
                 match self.requestData.path.get(1):
                     case '1':

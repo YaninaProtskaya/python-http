@@ -1,0 +1,27 @@
+[
+    {
+        "id": "15172",
+        "mainCode": "410100",
+        "name": "Autorità di Audit"
+    },
+    {
+        "id": "11323",
+        "mainCode": "600100",
+        "name": "AVVOCATURA REGIONALE"
+    },
+    {
+        "id": "10763",
+        "mainCode": "500300",
+        "name": "DIREZIONE GENERALE AUTORITÀ DI GESTIONE FONDO EUROPEO DI SVILUPPO REGIONALE"
+    },
+    {
+        "id": "11052",
+        "mainCode": "500100",
+        "name": "DIREZIONE GENERALE AUTORITA’ DI GESTIONE FONDO SOCIALE EUROPEO E FONDO PER LO SVILUPPO E LA COESIONE"
+    },
+    {
+        "id": "10902",
+        "mainCode": "501700",
+        "name": "DIREZIONE GENERALE CICLO INTEGRATO DELLE ACQUE E DEI RIFIUTI, AUTORIZZAZIONI AMBIENTALI"
+    }
+]

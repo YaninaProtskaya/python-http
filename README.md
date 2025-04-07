@@ -3,7 +3,7 @@
 ### Setup
 In project root folder:
 ```
-virtualenv .venv  
+virtualenv .venv -p python3.10
 source .venv/bin/activate   
 pip install -r requirements.txt
 ```
